@@ -1,3 +1,54 @@
+/* Colors:
+#f6eddb - white
+#ec8d75 - mango
+#bd5b64 - rose
+#9e2281 - hot pink
+#40265c - purple
+#1b1e23 - black
+#244584 - dark blue
+#50a9cf - light blue
+#96e6c2 - turqoise */
+
+/* color areas:
+display - #f6eddb
+button outline - #f6eddb */
+
+
 body {
-    background-color: black;
+    background-color: #1b1e23;
+    padding: 20px;
+}
+
+.app-container {
+    display: flex;
+    justify-content: center;
+}
+
+.calculator-stroke {
+    width: 425px;
+    height: 625px;
+    border: 3px solid #9e2281;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 10px 10px #40265c;
+}
+
+.calculator-mainbody {
+    width: 400px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 3px solid #ec8d75;
+}
+
+.display-background {
+    background-color: #f6eddb;
+}
+
+.display-numbers {
+    color: #40265c;
+    font-size: 36px;
+    text-align: right;
 }
