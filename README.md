@@ -18,3 +18,13 @@ Needs some keys
 |  1    2     3  -  | 
 |  0    .    =   =  |
 \-------------------/
+
+To-do after finishing Javascript: 
+
+HTML: 
+Add H1 w/ information?
+Add Github link?
+
+CSS:
+button click feedback
+
