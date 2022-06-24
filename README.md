@@ -30,12 +30,12 @@ button click feedback
 
 
 errors to watch for
-Maximum digits = 20
+Maximum digits = 20 [x]
 over 20 digits = format to fit display
 make sure operator doesn't try without numbers and operator.
 only one decimal point.
-dont let user divide by zero
-evaluate each set separately
+dont let user divide by zero [x]
+evaluate each set separately [x]
 round long answers
 
 

@@ -12,23 +12,92 @@ console.log("Hello, World!");
 //decimal-btn
 //operation-fnc
 
-
-function operate (array1Index, array2Index) {
-    console.log(operation(array1Index, array2Index));
-}
-
-const addOperation = function addOperation (a, b) {
-    return a + b;
-}
-
 let operation = null;
-operation = addOperation;
 let calculatorStorage = [];
-calculatorStorage.push(10);
-calculatorStorage.push(10);
-console.log(calculatorStorage);
-operate(calculatorStorage[0], calculatorStorage[1]);
 
+//[0] is first term, [1] is second. convert to Number().
+function operate (array1Index, array2Index) {
+ //   console.log(calculatorStorage);
+//    console.log(operation(Number(array1Index), Number(array2Index)));
+    displayUpdate.innerHTML = Math.round((operation(+array1Index, +array2Index) + Number.EPSILON) / 100 );
+    calculatorStorage = [];
+//    calculatorStorage.push(displayUpdate.innerHTML);
+//    console.log(calculatorStorage);
+}
+
+function checkIfOperation(){
+    if(calculatorStorage[0] && calculatorStorage[1]) {
+        operate(calculatorStorage[0], calculatorStorage[1]);
+    }
+};
+
+const addOperation = (a, b) => { return a + b };
+const subtractOperation = (a, b) => { return a - b };
+const multiplyOperation = (a, b) => { return a * b };
+const divideOperation = (a, b) => { 
+    if (b === 0) {
+        return "Error! Don't do that!"
+    } else {
+        return a / b }
+    };
+
+const btnAddClick = document.querySelector('.add-fnc');
+btnAddClick.onclick = () => {
+    operation = addOperation;
+    calculatorStorage.push(displayUpdate.innerHTML);
+    displayUpdate.innerHTML = null;
+//    checkIfOperation();
+};
+
+const btnSubtractClick = document.querySelector('.subtract-fnc');
+btnSubtractClick.onclick = () => {
+    operation = subtractOperation;
+    calculatorStorage.push(displayUpdate.innerHTML);
+    displayUpdate.innerHTML = null;
+//  checkIfOperation();
+}
+
+const btnMultiplyClick = document.querySelector('.multiply-fnc');
+btnMultiplyClick.onclick = () => {
+    operation = multiplyOperation;
+    calculatorStorage.push(displayUpdate.innerHTML);
+    displayUpdate.innerHTML = null;
+//    checkIfOperation();
+};
+
+
+const btnDivideClick = document.querySelector('.divide-fnc');
+btnDivideClick.onclick = () => {
+    operation = divideOperation;
+    calculatorStorage.push(displayUpdate.innerHTML);
+    displayUpdate.innerHTML = null;
+//    checkIfOperation();
+};
+
+const btnEqualsClick = document.querySelector('.operation-fnc');
+btnEqualsClick.onclick = () => {
+    if (displayUpdate.innerHTML == null || displayUpdate.innerHTML == null) {
+        alert("Please Enter a number first!");
+    }
+    else {
+        calculatorStorage.push(displayUpdate.innerHTML);
+        displayUpdate.innerHTML = null;
+        operate(calculatorStorage[0], calculatorStorage[1]);
+    }
+};
+
+const clearButtonClick = document.querySelector('.clear-fnc');
+clearButtonClick.onclick = () => {
+    calculatorStorage = [];
+    displayUpdate.innerHTML = null;
+    console.log(calculatorStorage);
+}
+
+//set the operation
+//push the number to the array
+//if (a,b)
+// Operate();
+//
 
 
 
@@ -43,6 +112,8 @@ function updateNum (num) {
         displayUpdate.innerHTML += num;
     } else {
         console.log("error, too many numbers");
+        //toExponential();
+        //use this function to convert to scientific notation (fix later)
     }
 //    console.log(num); check if number is right
 };
