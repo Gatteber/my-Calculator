@@ -19,6 +19,16 @@ Needs some keys
 |  0    .    =   =  |
 \-------------------/
 
+
+JS TO-DO: 
+fix display for exponential notation                   []
+fix NaN problems if user tries to enter something      []
+add decimal point functionality                        []
+add exponential functionality                          []
+Divide by zero kinda works but needs fixing            []
+final keyboard functionality                           []
+bugtesting                                             []
+
 To-do after finishing Javascript: 
 
 HTML: 
@@ -36,8 +46,13 @@ make sure operator doesn't try without numbers and operator.
 only one decimal point.
 dont let user divide by zero [x]
 evaluate each set separately [x]
-round long answers
+round long answers [x]
 
+***NOTES FOR NEXT TIME***:
+push the update to the array right away???? This might fix the issue of NaN and allows exponential to be easier to fix too.
+
+This likely means a string is being pushed to the array, you might be able to convert it to a number and remove the need to convert inside the operation. (but maybe not a good idea)
+***NOTES FOR NEXT TIME***
 
 Approaching the problem:
 add console.log for click and keydown.

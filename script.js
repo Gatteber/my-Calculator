@@ -19,7 +19,9 @@ let calculatorStorage = [];
 function operate (array1Index, array2Index) {
  //   console.log(calculatorStorage);
 //    console.log(operation(Number(array1Index), Number(array2Index)));
-    displayUpdate.innerHTML = Math.round((operation(+array1Index, +array2Index) + Number.EPSILON) / 100 );
+    // displayUpdate.innerHTML = Math.round((operation(+array1Index, +array2Index) + Number.EPSILON) / 100 );
+    let result = operation(+array1Index, +array2Index);
+    displayUpdate.innerHTML = +result.toFixed(2);
     calculatorStorage = [];
 //    calculatorStorage.push(displayUpdate.innerHTML);
 //    console.log(calculatorStorage);
@@ -36,7 +38,7 @@ const subtractOperation = (a, b) => { return a - b };
 const multiplyOperation = (a, b) => { return a * b };
 const divideOperation = (a, b) => { 
     if (b === 0) {
-        return "Error! Don't do that!"
+        alert("Error! Don't do that!");
     } else {
         return a / b }
     };
@@ -113,6 +115,8 @@ function updateNum (num) {
     } else {
         console.log("error, too many numbers");
         //toExponential();
+        num.toExponential(10);
+        displayUpdate.innerHTML += num;
         //use this function to convert to scientific notation (fix later)
     }
 //    console.log(num); check if number is right
