@@ -87,6 +87,8 @@ btnDivideClick.onclick = () => {
 //    checkIfOperation();
 };
 
+
+//equals
 const btnEqualsClick = document.querySelector('.operation-fnc');
 btnEqualsClick.onclick = () => {
     if (displayUpdate.innerHTML == null || operation == null) {
@@ -99,6 +101,8 @@ btnEqualsClick.onclick = () => {
     }
 };
 
+
+//clear
 const clearButtonClick = document.querySelector('.clear-fnc');
 clearButtonClick.onclick = () => {
     calculatorStorage = [];
@@ -106,11 +110,12 @@ clearButtonClick.onclick = () => {
     console.log(calculatorStorage);
 }
 
+
+//expo
 const powerButtonClick = document.querySelector('.power-fnc');
 powerButtonClick.onclick = () => {
     let powerFunc = displayUpdate.innerHTML;
     let powerResult = powerFunc ** 2;
-    console.log(powerResult.length);
     if (powerResult > 1000000000000) { //janky but works
         displayUpdate.innerHTML = powerResult.toPrecision(14);
     } else {
@@ -118,6 +123,8 @@ powerButtonClick.onclick = () => {
     }
 }
 
+
+//decimal
 const decimalButtonClick = document.querySelector('.decimal-btn');
 decimalButtonClick.onclick = () => {
     let decimalUpdate = displayUpdate.innerHTML;
@@ -126,6 +133,14 @@ decimalButtonClick.onclick = () => {
     } else {
         displayUpdate.innerHTML += "."
     }
+}
+
+//backspace
+const backspaceButtonClick = document.querySelector('.backspace-fnc');
+backspaceButtonClick.onclick = () => {
+    let backUp = displayUpdate.innerHTML;
+    backUp = backUp.slice(0, -1);
+    displayUpdate.innerHTML = backUp;
 }
 
 
@@ -250,4 +265,8 @@ btn0Click.onclick = () => {updateNum(0)};
 document.addEventListener('keydown', (e) => {
     let keyCode = e.key;
     if(keyCode === "0") {updateNum(0);}
+    else if(keyCode === "/") {    
+        operation = divideOperation;
+        calculatorStorage.push(displayUpdate.innerHTML);
+        displayUpdate.innerHTML = null;}
 });
