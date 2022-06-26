@@ -21,11 +21,11 @@ Needs some keys
 
 
 JS TO-DO: 
-fix display for exponential notation                   []
-fix NaN problems if user tries to enter something      []
+fix display for exponential notation                   [X]
+fix NaN problems if user tries to enter something      [X]
 add decimal point functionality                        []
 add exponential functionality                          []
-Divide by zero kinda works but needs fixing            []
+Divide by zero kinda works but needs fixing            [X]
 final keyboard functionality                           []
 bugtesting                                             []
 
@@ -37,6 +37,7 @@ Add Github link?
 
 CSS:
 button click feedback
+fix left/right padding for buttons
 
 
 errors to watch for

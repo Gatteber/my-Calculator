@@ -14,17 +14,25 @@ console.log("Hello, World!");
 
 let operation = null;
 let calculatorStorage = [];
+console.log(calculatorStorage);
+let triedToZero = false;
 
 //[0] is first term, [1] is second. convert to Number().
 function operate (array1Index, array2Index) {
- //   console.log(calculatorStorage);
-//    console.log(operation(Number(array1Index), Number(array2Index)));
-    // displayUpdate.innerHTML = Math.round((operation(+array1Index, +array2Index) + Number.EPSILON) / 100 );
-    let result = operation(+array1Index, +array2Index);
-    displayUpdate.innerHTML = +result.toFixed(2);
-    calculatorStorage = [];
-//    calculatorStorage.push(displayUpdate.innerHTML);
-//    console.log(calculatorStorage);
+    if (array2Index == 0 && operation == divideOperation){
+        calculatorStorage = [];
+        operation = null;
+        //divideByZero();
+        return divideByZero();
+    } else {
+        let result = operation(+array1Index, +array2Index);
+        displayUpdate.innerHTML = +result.toFixed(2);
+        calculatorStorage = [];
+        operation = null;
+    //    calculatorStorage.push(displayUpdate.innerHTML);
+    //    console.log(calculatorStorage);
+    }
+
 }
 
 function checkIfOperation(){
@@ -38,10 +46,29 @@ const subtractOperation = (a, b) => { return a - b };
 const multiplyOperation = (a, b) => { return a * b };
 const divideOperation = (a, b) => { 
     if (b === 0) {
-        alert("Error! Don't do that!");
+        //alert("Error! Don't do that!");
+        //divideByZero();
+        // calculatorStorage = [];
+        // operation = null;
+        // return divideByZero();
+        triedToZero = true;
     } else {
         return a / b }
     };
+
+
+//not sure what this does but it checks for divide function.
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function divideByZero() {
+    displayUpdate.innerHTML = "Nice Try ;)";
+    for (let i = 0; i < 3; i++) {
+        await sleep(i * 1000);
+    }
+    displayUpdate.innerHTML = null;
+}
 
 const btnAddClick = document.querySelector('.add-fnc');
 btnAddClick.onclick = () => {
@@ -78,8 +105,8 @@ btnDivideClick.onclick = () => {
 
 const btnEqualsClick = document.querySelector('.operation-fnc');
 btnEqualsClick.onclick = () => {
-    if (displayUpdate.innerHTML == null || displayUpdate.innerHTML == null) {
-        alert("Please Enter a number first!");
+    if (displayUpdate.innerHTML == null || operation == null) {
+        //alert("Please Enter a number first!");
     }
     else {
         calculatorStorage.push(displayUpdate.innerHTML);
@@ -110,14 +137,29 @@ const displayUpdate = document.querySelector('.numbers');
 //number/operator functions
 function updateNum (num) {
 //    console.log(displayUpdate.innerHTML.length);
-    if (displayUpdate.innerHTML.length < 20) {
+    if (displayUpdate.innerHTML.length < 19) {
         displayUpdate.innerHTML += num;
-    } else {
+    } else if (displayUpdate.innerHTML.length == 19) {
         console.log("error, too many numbers");
         //toExponential();
-        num.toExponential(10);
+        //num.toExponential(10);
         displayUpdate.innerHTML += num;
+        //[long number]
+        //     Idea 1
+        // // let longExpo = +displayUpdate.innerHTML;
+        // // console.log(typeof(longExpo));
+        // // longExpo.toExponential(2);
+        // // console.log(longExpo);
+        // // displayUpdate.innerHTML = null;
+        let longExpo = +displayUpdate.innerHTML;
+        console.log(longExpo.toPrecision(15));
+        longExpo = longExpo.toPrecision(15);
+        displayUpdate.innerHTML = null;
+        displayUpdate.innerHTML = longExpo;
+
         //use this function to convert to scientific notation (fix later)
+    } else {
+        alert("Your number is too long!");
     }
 //    console.log(num); check if number is right
 };
@@ -202,7 +244,3 @@ document.addEventListener('keydown', (e) => {
     let keyCode = e.key;
     if(keyCode === "0") {updateNum(0);}
 });
-
-
-
-
