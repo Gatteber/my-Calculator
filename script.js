@@ -106,8 +106,8 @@ clearButtonClick.onclick = () => {
     console.log(calculatorStorage);
 }
 
-const powerButtonclick = document.querySelector('.power-fnc');
-powerButtonclick.onclick = () => {
+const powerButtonClick = document.querySelector('.power-fnc');
+powerButtonClick.onclick = () => {
     let powerFunc = displayUpdate.innerHTML;
     let powerResult = powerFunc ** 2;
     console.log(powerResult.length);
@@ -115,6 +115,16 @@ powerButtonclick.onclick = () => {
         displayUpdate.innerHTML = powerResult.toPrecision(14);
     } else {
         displayUpdate.innerHTML = powerResult;
+    }
+}
+
+const decimalButtonClick = document.querySelector('.decimal-btn');
+decimalButtonClick.onclick = () => {
+    let decimalUpdate = displayUpdate.innerHTML;
+    if (decimalUpdate.includes(".")) {
+        //do nothing
+    } else {
+        displayUpdate.innerHTML += "."
     }
 }
 

@@ -23,7 +23,7 @@ Needs some keys
 JS TO-DO: 
 fix display for exponential notation                   [X]
 fix NaN problems if user tries to enter something      [X]
-add decimal point functionality                        []
+add decimal point functionality                        [X]
 add exponential functionality                          [X]
 add backspace functionality                            []
 Divide by zero kinda works but needs fixing            [X]
