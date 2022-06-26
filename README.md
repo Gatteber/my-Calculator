@@ -27,8 +27,8 @@ add decimal point functionality                        [X]
 add exponential functionality                          [X]
 add backspace functionality                            [X]
 Divide by zero kinda works but needs fixing            [X]
-final keyboard functionality                           []
-bugtesting                                             []
+final keyboard functionality                           [X]
+bugtesting                                             [X]
 
 To-do after finishing Javascript: 
 
