@@ -61,7 +61,8 @@ function updateNum (num) {
         displayUpdate.innerHTML = null;
         displayUpdate.innerHTML = longExpo;
     } else {
-        alert("Your number is too long!");
+        //alert("Your number is too long!");
+        //does nothing
     }
 };
 
@@ -190,56 +191,145 @@ btn0Click.onclick = () => {updateNum(0)};
 //keydown functionality
 document.addEventListener('keydown', (e) => {
     let keyCode = e.key;
-    if(keyCode === "0") {updateNum(0);}
-    else if(keyCode === "1") {updateNum(1);}
-    else if(keyCode === "2") {updateNum(2);}
-    else if(keyCode === "3") {updateNum(3);}
-    else if(keyCode === "4") {updateNum(4);}
-    else if(keyCode === "5") {updateNum(5);}
-    else if(keyCode === "6") {updateNum(6);}
-    else if(keyCode === "7") {updateNum(7);}
-    else if(keyCode === "8") {updateNum(8);}
-    else if(keyCode === "9") {updateNum(9);}
+    if(keyCode === "0") {
+        btn0Click.classList.add('button-click');
+        updateNum(0);
+        btn0Click.addEventListener("transitionend", () => {
+            btn0Click.classList.remove('button-click');
+        });
+    }
+    else if(keyCode === "1") {
+        btn1Click.classList.add('button-click');
+        updateNum(1);
+        btn1Click.addEventListener("transitionend", () => {
+            btn1Click.classList.remove('button-click');
+        });
+    }
+    else if(keyCode === "2") {
+        btn2Click.classList.add('button-click');
+        updateNum(2);
+        btn2Click.addEventListener("transitionend", () => {
+            btn2Click.classList.remove('button-click');
+        });
+    }
+    else if(keyCode === "3") {
+        btn3Click.classList.add('button-click');
+        updateNum(3);
+        btn3Click.addEventListener("transitionend", () => {
+            btn3Click.classList.remove('button-click');
+        });
+    }
+    else if(keyCode === "4") {
+        btn4Click.classList.add('button-click');
+        updateNum(4);
+        btn4Click.addEventListener("transitionend", () => {
+            btn4Click.classList.remove('button-click');
+        });
+    }
+    else if(keyCode === "5") {
+        btn5Click.classList.add('button-click');
+        updateNum(5);
+        btn5Click.addEventListener("transitionend", () => {
+            btn5Click.classList.remove('button-click');
+        });
+    }
+    else if(keyCode === "6") {
+        btn6Click.classList.add('button-click');
+        updateNum(6);
+        btn6Click.addEventListener("transitionend", () => {
+            btn6Click.classList.remove('button-click');
+        });
+    }
+    else if(keyCode === "7") {
+        btn7Click.classList.add('button-click');
+        updateNum(7);
+        btn7Click.addEventListener("transitionend", () => {
+            btn7Click.classList.remove('button-click');
+        });
+    }
+    else if(keyCode === "8") {
+        btn8Click.classList.add('button-click');
+        updateNum(8);
+        btn8Click.addEventListener("transitionend", () => {
+            btn8Click.classList.remove('button-click');
+        });
+    }
+    else if(keyCode === "9") {
+        btn9Click.classList.add('button-click');
+        updateNum(9);
+        btn9Click.addEventListener("transitionend", () => {
+            btn9Click.classList.remove('button-click');
+        });
+    }
     else if(keyCode === "+") {
+        btnAddClick.classList.add('button-click');
         operation = addOperation;
         calculatorStorage.push(displayUpdate.innerHTML);
         displayUpdate.innerHTML = null;
+        btnAddClick.addEventListener("transitionend", () => {
+            btnAddClick.classList.remove('button-click');
+        });
     }
     else if(keyCode === "-") {
+        btnSubtractClick.classList.add('button-click');
         operation = subtractOperation;
         calculatorStorage.push(displayUpdate.innerHTML);
         displayUpdate.innerHTML = null;
+        btnSubtractClick.addEventListener("transitionend", () => {
+            btnSubtractClick.classList.remove('button-click');
+        });
     }
     else if(keyCode === "*") {
+        btnMultiplyClick.classList.add('button-click');
         operation = multiplyOperation;
         calculatorStorage.push(displayUpdate.innerHTML);
         displayUpdate.innerHTML = null;
+        btnMultiplyClick.addEventListener("transitionend", () => {
+            btnMultiplyClick.classList.remove('button-click');
+        });
     }
     else if(keyCode === "/") {
+        btnDivideClick.classList.add('button-click');
         operation = divideOperation;
         calculatorStorage.push(displayUpdate.innerHTML);
         displayUpdate.innerHTML = null;
+        btnDivideClick.addEventListener("transitionend", () => {
+            btnDivideClick.classList.remove('button-click');
+        });
     }
     else if(keyCode === ".") {
+        decimalButtonClick.classList.add('button-click');
         let decimalUpdate = displayUpdate.innerHTML;
         if (decimalUpdate.includes(".")) {
             //do nothing
         } else {
             displayUpdate.innerHTML += "."
         }
+        decimalButtonClick.addEventListener("transitionend", () => {
+            decimalButtonClick.classList.remove('button-click');
+        });
     }
     else if(keyCode === "Backspace") {
+        backspaceButtonClick.classList.add('button-click');
         let backUp = displayUpdate.innerHTML;
         backUp = backUp.slice(0, -1);
         displayUpdate.innerHTML = backUp;
+        backspaceButtonClick.addEventListener("transitionend", () => {
+            backspaceButtonClick.classList.remove('button-click');
+        });
     }
-    else if(keyCode === "Enter") {    if (displayUpdate.innerHTML == null || operation == null) {
+    else if(keyCode === "Enter") {
+        btnEqualsClick.classList.add('button-click');            
+        if (displayUpdate.innerHTML == null || operation == null) {
         //alert("Please Enter a number first!");
     }
-    else {
+        else {
         calculatorStorage.push(displayUpdate.innerHTML);
         displayUpdate.innerHTML = null;
         operate(calculatorStorage[0], calculatorStorage[1]);
-    }}
-
+    }
+    btnEqualsClick.addEventListener("transitionend", () => {
+        btnEqualsClick.classList.remove('button-click');
+    });
+    }
 });

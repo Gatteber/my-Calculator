@@ -30,11 +30,18 @@ button {
     padding: 18px;
     border: none;
     color: #f6eddb;
+    transition: all 0.1s;
 }
 
 button:hover {
+    transform:scale(1.1);
     background-color: #96e6c2;
     color: #1b1e23; 
+}
+
+button:active {
+    background-color: #96e6c2;
+    box-shadow: 0px 0px 30px 0px #50a9cf;
 }
 
 
@@ -130,4 +137,11 @@ button:hover {
 .backspace-fnc {
     padding-left: 8px;
     padding-right: 9px;
+}
+
+.button-click {
+    transform:scale(1.1);
+    background-color: #96e6c2;
+    color: #1b1e23; 
+    box-shadow: 0px 0px 30px 0px #50a9cf;
 }

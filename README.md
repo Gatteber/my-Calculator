@@ -7,6 +7,20 @@ Needs an operate() function
 Needs some keys
 
 
+### Reflection ###
+Well, somehow I finished it. To be honest, I'm now starting to see where some of my ineffecient code is. I'm starting to wonder if I shouldn't have tried to make some sort of universal selectors for the various buttons, as it could have shrank down my code a lot. I was very, very worried when I was putting the finishing touches on, and I think I could have figured out a different way to execute it, but at the point I was at I was committed. I think trying to add all the extra credit in from the beginning made my code kind of janky, but I'm really proud I was able to solve everything!! The only thing I didn't implement (without googling a bit and some experimentation) was the sleep function, because I just assumed js had it and when it didn't, I didn't want to look too deeply into fixing it.
+
+What to do better:
+Think more carefully! Better planning could have made a much more simply code. It's entirely possible this code could have been half as long.
+
+What I did well:
+It looks nice. Even if it's janky under the hood, the actual calculator seems to work nicely. I'm proud of myself for completing ALL of TOP's extra credit assignments.
+
+I WILL KEEP DOING MY BEST!!
+
+
+Below are all the notes I used for myself for the project, read at your own risk.
+
 [  DISPLAY          ]    
 /-------------------\
 | x^2   /   *    C  |
@@ -17,7 +31,7 @@ Needs some keys
 |                   |
 |  1    2     3  -  | 
 |  0    .    =   =  |
-\-------------------/
+|-------------------|
 
 
 JS TO-DO: 
@@ -33,12 +47,12 @@ bugtesting                                             [X]
 To-do after finishing Javascript: 
 
 HTML: 
-Add H1 w/ information?
-Add Github link?
+Add H1 w/ information?  DONE
+Add Github link? Decided not to.
 
 CSS:
-button click feedback
-fix left/right padding for buttons
+button click feedback  finished!
+fix left/right padding for buttons Done!
 
 
 errors to watch for
