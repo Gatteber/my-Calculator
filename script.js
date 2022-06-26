@@ -14,50 +14,34 @@ console.log("Hello, World!");
 
 let operation = null;
 let calculatorStorage = [];
-console.log(calculatorStorage);
-let triedToZero = false;
 
 //[0] is first term, [1] is second. convert to Number().
 function operate (array1Index, array2Index) {
     if (array2Index == 0 && operation == divideOperation){
         calculatorStorage = [];
         operation = null;
-        //divideByZero();
         return divideByZero();
     } else {
         let result = operation(+array1Index, +array2Index);
         displayUpdate.innerHTML = +result.toFixed(2);
         calculatorStorage = [];
         operation = null;
-    //    calculatorStorage.push(displayUpdate.innerHTML);
-    //    console.log(calculatorStorage);
     }
-
 }
 
-function checkIfOperation(){
-    if(calculatorStorage[0] && calculatorStorage[1]) {
-        operate(calculatorStorage[0], calculatorStorage[1]);
-    }
-};
+// function checkIfOperation(){
+//     if(calculatorStorage[0] && calculatorStorage[1]) {
+//         operate(calculatorStorage[0], calculatorStorage[1]);
+//     }
+// };
 
 const addOperation = (a, b) => { return a + b };
 const subtractOperation = (a, b) => { return a - b };
 const multiplyOperation = (a, b) => { return a * b };
-const divideOperation = (a, b) => { 
-    if (b === 0) {
-        //alert("Error! Don't do that!");
-        //divideByZero();
-        // calculatorStorage = [];
-        // operation = null;
-        // return divideByZero();
-        triedToZero = true;
-    } else {
-        return a / b }
-    };
+const divideOperation = (a, b) => { return a / b };
 
 
-//not sure what this does but it checks for divide function.
+//not sure what this does but it works like sleep.
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -122,6 +106,19 @@ clearButtonClick.onclick = () => {
     console.log(calculatorStorage);
 }
 
+const powerButtonclick = document.querySelector('.power-fnc');
+powerButtonclick.onclick = () => {
+    let powerFunc = displayUpdate.innerHTML;
+    let powerResult = powerFunc ** 2;
+    console.log(powerResult.length);
+    if (powerResult > 1000000000000) { //janky but works
+        displayUpdate.innerHTML = powerResult.toPrecision(14);
+    } else {
+        displayUpdate.innerHTML = powerResult;
+    }
+}
+
+
 //set the operation
 //push the number to the array
 //if (a,b)
@@ -152,8 +149,8 @@ function updateNum (num) {
         // // console.log(longExpo);
         // // displayUpdate.innerHTML = null;
         let longExpo = +displayUpdate.innerHTML;
-        console.log(longExpo.toPrecision(15));
-        longExpo = longExpo.toPrecision(15);
+        console.log(longExpo.toPrecision(14));
+        longExpo = longExpo.toPrecision(14);
         displayUpdate.innerHTML = null;
         displayUpdate.innerHTML = longExpo;
 
